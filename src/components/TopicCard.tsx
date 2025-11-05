@@ -10,11 +10,11 @@ interface TopicCardProps {
 const getLevelColor = (level: string) => {
   switch (level) {
     case "Beginner":
-      return "bg-green-100 text-green-800 hover:bg-green-100 dark:bg-green-900/30 dark:text-green-400";
+      return "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400";
     case "Intermediate":
-      return "bg-amber-100 text-amber-800 hover:bg-amber-100 dark:bg-amber-900/30 dark:text-amber-400";
+      return "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400";
     case "Advanced":
-      return "bg-red-100 text-red-800 hover:bg-red-100 dark:bg-red-900/30 dark:text-red-400";
+      return "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400";
     default:
       return "";
   }
@@ -23,15 +23,17 @@ const getLevelColor = (level: string) => {
 const TopicCard = ({ topic }: TopicCardProps) => {
   return (
     <Link to={`/topic/${topic.id}`}>
-      <Card className="group h-full hover-lift animate-scale-in transition-all hover:border-primary hover:glow-effect relative overflow-hidden">
+      {/* Removed hover:glow-effect */}
+      <Card className="group h-full hover-lift animate-scale-in transition-all hover:border-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <CardHeader className="relative z-10">
           <div className="mb-2 flex items-center justify-between">
-            <Badge className={`${getLevelColor(topic.level)} transition-transform group-hover:scale-110`}>
+            {/* Removed group-hover:scale-110 from Badge */}
+            <Badge className={`${getLevelColor(topic.level)} transition-colors`}>
               {topic.level}
             </Badge>
           </div>
-          <CardTitle className="text-xl group-hover:text-primary transition-all duration-300 group-hover:translate-x-1">
+          <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
             {topic.title}
           </CardTitle>
           <CardDescription className="group-hover:text-foreground/80 transition-colors">{topic.description}</CardDescription>
