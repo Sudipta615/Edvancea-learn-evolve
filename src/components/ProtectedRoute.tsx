@@ -32,9 +32,16 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
     navigate("/auth", { state: { from: location } });
   };
 
+  const handleCloseDialog = (open: boolean) => {
+    if (!open) {
+      navigate("/paths");
+    }
+    setShowDialog(open);
+  };
+
   if (!isAuthenticated) {
     return (
-      <Dialog open={showDialog} onOpenChange={setShowDialog}>
+      <Dialog open={showDialog} onOpenChange={handleCloseDialog}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <div className="flex items-center justify-center mb-4">
