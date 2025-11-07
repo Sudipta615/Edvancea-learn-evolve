@@ -11,7 +11,8 @@ import {
 } from "@/components/ui/command";
 import { learningPaths } from "@/data/learningPaths";
 import { topics } from "@/data/topics";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Search } from "lucide-react"; // Imported Search icon
+import { Button } from "@/components/ui/button"; // Imported Button
 
 export function SearchCommand() {
   const [open, setOpen] = React.useState(false);
@@ -36,9 +37,10 @@ export function SearchCommand() {
 
   return (
     <>
+      {/* Full Search Bar: Hidden on mobile, visible sm and up */}
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground px-4 py-2 relative h-9 w-full justify-start rounded-md bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-[20rem] lg:w-[30rem]"
+        className="hidden sm:inline-flex items-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground px-4 py-2 relative h-9 w-full justify-start rounded-md bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-[20rem] lg:w-[30rem]"
       >
         <span className="hidden lg:inline-flex">Search topics...</span>
         <span className="inline-flex lg:hidden">Search...</span>
@@ -46,6 +48,18 @@ export function SearchCommand() {
           <span className="text-xs">⌘</span>K
         </kbd>
       </button>
+
+      {/* Icon-only Button: Visible on mobile, hidden sm and up */}
+      <Button
+        onClick={() => setOpen(true)}
+        variant="ghost"
+        size="icon"
+        className="sm:hidden h-9 w-9"
+      >
+        <Search className="h-5 w-5" />
+        <span className="sr-only">Search</span>
+      </Button>
+
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
