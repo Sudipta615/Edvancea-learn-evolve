@@ -52,6 +52,7 @@ const TopicDetail = () => {
   const hasQuiz = quizzes.find(q => q.topicId === topicId);
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const bookmarked = topicId ? isBookmarked(topicId) : false;
+  const { streak, updateStreak } = useStreak(); // Get the updateStreak function
   
   const handleToggleBookmark = () => {
       if (!topicId) return;
@@ -73,6 +74,7 @@ const TopicDetail = () => {
       });
     } else {
       markComplete(topicId);
+      updateStreak(); // Update the streak when marking complete
       toast({
         title: "Congratulations! 🎉",
         description: "Topic marked as complete",

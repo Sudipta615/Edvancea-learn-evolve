@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 
 # personal files
-generate-content.ts
+*.env
+*.env.local
