@@ -122,7 +122,7 @@ const Auth = () => {
         if (result.success) {
           toast({
             title: "Account created!",
-            description: "Welcome to SkillForge.",
+            description: "Welcome to Edvancea.",
           });
           navigate(from, { replace: true });
         } else {
@@ -154,7 +154,7 @@ const Auth = () => {
         <CardHeader className="space-y-2 text-center">
           <Link to="/" className="flex items-center justify-center space-x-2 mb-4">
             <GraduationCap className="h-8 w-8 text-primary animate-float" />
-            <span className="text-2xl font-bold gradient-text">SkillForge</span>
+            <span className="text-2xl font-bold gradient-text">Edvancea</span>
           </Link>
           <CardTitle className="text-2xl">
             {isLogin ? "Welcome Back" : "Create Account"}

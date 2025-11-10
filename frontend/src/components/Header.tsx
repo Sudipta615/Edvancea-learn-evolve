@@ -31,7 +31,7 @@ const Header = () => {
             <GraduationCap className="h-6 w-6 text-primary" />
             {/* Hide text on very small screens if needed, but usually fine to keep */}
             <span className="hidden md:inline-block text-xl font-bold text-foreground">
-              SkillForge
+              Edvancea
             </span>
           </Link>
         </div>
