@@ -18,9 +18,9 @@ app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // Parse JSON bodies
 
 // API Routes
-// REMOVE the "/api" prefix here. Vercel handles it.
-app.use("/auth", authRoutes);
-app.use("/user", userDataRoutes);
+// Add the /api prefix back!
+app.use("/api/auth", authRoutes);
+app.use("/api/user", userDataRoutes);
 
-// DO NOT listen here. Instead, export the app for Vercel.
+// Export the app for Vercel
 export default app;
