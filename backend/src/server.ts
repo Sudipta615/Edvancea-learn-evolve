@@ -8,9 +8,6 @@ import userDataRoutes from "./routes/userData.routes";
 // Load environment variables
 dotenv.config();
 
-// Connect to database
-connectDB();
-
 const app = express();
 
 // Middleware
@@ -21,5 +18,13 @@ app.use(express.json()); // Parse JSON bodies
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userDataRoutes);
 
-// DO NOT listen here. Instead, export the app for Vercel.
+// Health check endpoint
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok", message: "Server is running" });
+});
+
+// Connect to database
+connectDB();
+
+// Export for Vercel serverless
 export default app;

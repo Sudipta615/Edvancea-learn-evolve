@@ -1,7 +1,7 @@
 {
-  "name": "skillforge-backend",
+  "name": "edvancea-backend",
   "version": "1.0.0",
-  "description": "Backend for SkillForge learning platform",
+  "description": "Backend for Edvancea learning platform",
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
