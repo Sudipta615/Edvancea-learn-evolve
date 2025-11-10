@@ -18,11 +18,9 @@ app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // Parse JSON bodies
 
 // API Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/user", userDataRoutes); // All user data routes (progress, bookmarks, etc.)
+// REMOVE the "/api" prefix here. Vercel handles it.
+app.use("/auth", authRoutes);
+app.use("/user", userDataRoutes);
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// DO NOT listen here. Instead, export the app for Vercel.
+export default app;
